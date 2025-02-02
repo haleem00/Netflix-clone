@@ -85,23 +85,23 @@ pipeline {
             }
         }
             
-        stage('K8') {
-            steps {
-                dir('Kubernetes') { // Specify the directory here
-                    withKubeCredentials(kubectlCredentials: [[
-                    caCertificate: '', 
-                    clusterName: 'EKS_CLOUD', 
-                    contextName: '', 
-                    credentialsId: 'k8-token', 
-                    namespace: 'webapps', 
-                    serverUrl: 'https://2694E103F67E27D4115E703BA534F8D5.gr7.us-east-1.eks.amazonaws.com'
-                    ]]) {
-                        sh 'kubectl apply -f deployment.yml'
-                        sh 'kubectl apply -f service.yml'
-                        }
-                }
-            }
-        }
+        // stage('K8') {
+        //     steps {
+        //         dir('Kubernetes') { // Specify the directory here
+        //             withKubeCredentials(kubectlCredentials: [[
+        //             caCertificate: '', 
+        //             clusterName: 'EKS_CLOUD', 
+        //             contextName: '', 
+        //             credentialsId: 'k8-token', 
+        //             namespace: 'webapps', 
+        //             serverUrl: 'https://2694E103F67E27D4115E703BA534F8D5.gr7.us-east-1.eks.amazonaws.com'
+        //             ]]) {
+        //                 sh 'kubectl apply -f deployment.yml'
+        //                 sh 'kubectl apply -f service.yml'
+        //                 }
+        //         }
+        //     }
+        // }
 
             
             
