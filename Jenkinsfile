@@ -107,7 +107,10 @@ pipeline {
             
     }
     post {
-     always {
+        success {
+            build job: 'CD-Pipeline', wait: false // Trigger CD pipeline
+        }
+        always {
         emailext attachLog: true,
             subject: "'${currentBuild.result}'",
             body: "Project: ${env.JOB_NAME}<br/>" +
