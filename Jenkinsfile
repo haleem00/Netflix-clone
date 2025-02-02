@@ -84,7 +84,6 @@ pipeline {
                 }
             }
         }
-        
             
         // stage('K8') {
         //     steps {
